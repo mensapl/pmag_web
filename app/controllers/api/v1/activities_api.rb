@@ -9,10 +9,10 @@ module API
 
         desc 'Creates a new activity'
         params do
-          optional(:title)
-          optional(:description)
-          optional(:start_time)
-          optional(:end_time)
+          optional :title 
+          optional :description 
+          optional :start_time, type: Time, coerce_with: -> (val) { Time.parse(val) }
+          optional :end_time, type: Time, coerce_with: -> (val) { Time.parse(val) } 
         end
         post do
           result = Activity::Create.call(current_user, declared_params)
