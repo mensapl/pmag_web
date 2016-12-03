@@ -63,3 +63,4 @@ gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'hanami-validations'
 gem 'dry-monads'
+gem 'hashie-forbidden_attributes' # Required for Grape to work with ar strong_params
