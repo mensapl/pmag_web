@@ -8,6 +8,7 @@ module API
       helpers Doorkeeper::Grape::Helpers
       before { doorkeeper_authorize! }
       mount API::V1::Test
+      mount API::V1::ActivitiesAPI
     end
   end
 end
