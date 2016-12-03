@@ -6,7 +6,7 @@ module API
       helpers Doorkeeper::Grape::Helpers
       include API::V1::Defaults
       before { doorkeeper_authorize! }
-      mount API::V1::Events
+      mount API::V1::Test
     end
   end
 end
