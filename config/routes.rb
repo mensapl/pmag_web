@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount API::Base, at: "/"
   get 'home/index'
 
   root to: 'home#index'
