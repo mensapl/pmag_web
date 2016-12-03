@@ -7,6 +7,19 @@ module API
           Activity.all.where(accepted: true)
         end
 
+        desc 'Creates a new activity'
+        params do
+          optional(:title)
+          optional(:description)
+          optional(:start_time)
+          optional(:end_time)
+        end
+        post do
+          result = Activity::Create.call(current_user, declared_params)
+          error!(result.value, 422) unless result.success?
+          result.value
+        end
+
         route_param :id do
           get do
             Activity.find_by(id: params[:id])
