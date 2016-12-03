@@ -90,6 +90,8 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.1)
       dry-equalizer (~> 0.2)
+    dry-monads (0.2.1)
+      dry-equalizer
     dry-types (0.9.2)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
@@ -296,6 +298,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   doorkeeper
+  dry-monads
   grape
   grape-active_model_serializers
   grape-swagger
