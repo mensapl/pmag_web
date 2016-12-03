@@ -54,4 +54,4 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'tether-rails'
 gem 'grape'
 gem 'grape-active_model_serializers'
-
+gem 'rack-cors', :require => 'rack/cors'
