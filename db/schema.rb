@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203145835) do
+ActiveRecord::Schema.define(version: 20161203150851) do
+
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "accepted"
+    t.integer  "creator_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "title"
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["creator_id"], name: "index_activities_on_creator_id", using: :btree
+  end
 
   create_table "gathering_entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "going"
