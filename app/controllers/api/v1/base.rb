@@ -4,4 +4,4 @@ module API
       mount API::V1::Events
     end
   end
-end  
+end
