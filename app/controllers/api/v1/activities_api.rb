@@ -6,6 +6,12 @@ module API
         get do
           Activity.all.where(accepted: true)
         end
+
+        route_param :id do
+          get do
+            Activity.find_by(id: params[:id])
+          end
+        end
       end
     end
   end
