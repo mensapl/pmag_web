@@ -8,7 +8,7 @@ Doorkeeper.configure do
   end
 
   resource_owner_from_credentials do
-    user = User.find_for_database_authentication(email: params[:email])
+    user = User.find_for_database_authentication(mensa_id: params[:mensa_id])
     if user && user.valid_for_authentication? { user.valid_password?(params[:password]) }
       user.update_tracked_fields!(request)
       user
