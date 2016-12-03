@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
 
+  has_one :gathering_entry
+
 end
