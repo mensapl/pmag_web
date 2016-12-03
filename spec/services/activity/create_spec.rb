@@ -8,7 +8,7 @@ RSpec.describe Activity::Create, type: :service do
     let(:description) { 'Opis atrakcji' }
     let(:time_int) { Time.now.to_i }
     let(:start_time) { Time.at(time_int) }
-    let(:end_time) { Time.at(time_int)+2.hours }
+    let(:end_time) { Time.at(time_int) + 2.hours }
 
     let(:form) do
       {

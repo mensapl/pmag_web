@@ -1,19 +1,18 @@
-module API  
+module API
   module V1
     module Defaults
       extend ActiveSupport::Concern
 
       included do
-        prefix "api"
-        version "v1", using: :path
+        prefix 'api'
+        version 'v1', using: :path
         default_format :json
         format :json
         formatter :json, Grape::Formatter::ActiveModelSerializers
 
         helpers do
           def declared_params
-            @declared_params ||= declared(params, 
-               include_missing: false)
+            @declared_params ||= declared(params, include_missing: false)
           end
 
           def logger
@@ -31,4 +30,4 @@ module API
       end
     end
   end
-end  
+end

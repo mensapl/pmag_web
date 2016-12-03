@@ -1,6 +1,6 @@
 require 'doorkeeper/grape/helpers'
 
-module API  
+module API
   module V1
     class AuthorizedAPI < Grape::API
       helpers AuthHelpers

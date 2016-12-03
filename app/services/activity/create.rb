@@ -1,7 +1,6 @@
-require 'dry-monads' 
+require 'dry-monads'
 
 class Activity::Create
-
   class << self
     include Dry::Monads::Either::Mixin
     def call(creator, form)

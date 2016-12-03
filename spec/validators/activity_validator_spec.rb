@@ -4,7 +4,7 @@ RSpec.describe ActivityValidator, type: :validator do
   let(:title) { 'Atrakcja' }
   let(:description) { 'Opis atrakcji' }
   let(:start_time) { Time.now }
-  let(:end_time) { Time.now+2.hours }
+  let(:end_time) { Time.now + 2.hours }
 
   let(:form) do
     {

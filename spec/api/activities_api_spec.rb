@@ -14,7 +14,7 @@ RSpec.describe 'Activities API', type: :request do
     let(:title) { 'Atrakcja' }
     let(:description) { 'Opis atrakcji' }
     let(:start_time) { Time.now }
-    let(:end_time) { Time.now+2.hours }
+    let(:end_time) { Time.now + 2.hours }
 
     let(:form) do
       {
@@ -41,7 +41,7 @@ RSpec.describe 'Activities API', type: :request do
         expect(response.parsed_body['title']).to eq(title)
         expect(response.parsed_body['description']).to eq(description)
         expect(response.parsed_body['accepted']).to eq(false)
-        #TODO check times
+        # TODO: check times
       end
 
       context 'invalid form' do
