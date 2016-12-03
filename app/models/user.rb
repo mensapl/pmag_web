@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_one :gathering_entry
 
+  has_many :created_activities, foreign_key: :creator_id, class_name: 'Activity'
+
 end
