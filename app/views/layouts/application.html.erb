@@ -19,7 +19,6 @@
   <a href="#Top"></a>
 </head>
   <body>
-
     <nav class="navbar navbar-static-top navbar-dark bg-inverse">
       <a class="navbar-brand" href="#"><%= project_name %></a>
       <ul class="nav navbar-nav">
@@ -37,6 +36,10 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
       <%= yield %>
 
       <footer>
