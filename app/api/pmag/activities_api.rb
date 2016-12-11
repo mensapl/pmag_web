@@ -8,13 +8,16 @@ module Pmag
 
       desc 'Creates a new activity'
       params do
-        optional :title
-        optional :description
-        optional :start_time, type: Time, coerce_with: ->(val) { Time.parse(val) }
-        optional :end_time, type: Time, coerce_with: ->(val) { Time.parse(val) }
+        requires :type
+        requires :attributes, type: Hash do
+          optional :title
+          optional :description
+          optional :start_time, type: Time, coerce_with: ->(val) { Time.parse(val) }
+          optional :end_time, type: Time, coerce_with: ->(val) { Time.parse(val) }
+        end
       end
       post do
-        result = Activity::Create.call(current_user, declared_params)
+        result = Activity::Create.call(current_user, declared_params['attributes'])
         error!(result.value, 422) unless result.success?
         result.value
       end

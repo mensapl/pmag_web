@@ -20,10 +20,13 @@ RSpec.describe 'Activities API', type: :request do
 
     let(:form) do
       {
-        title: title,
-        description: description,
-        start_time: start_time,
-        end_time: end_time
+        type: 'activities',
+        attributes: {
+          title: title,
+          description: description,
+          start_time: start_time,
+          end_time: end_time
+        }
       }
     end
 
