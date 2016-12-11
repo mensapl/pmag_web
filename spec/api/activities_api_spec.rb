@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Activities API', type: :request do
-  describe '/api/me/company' do
+  describe '/api/v1/activities' do
     let!(:user) { User.create!(email: 'qwe@qwe.qwe', password: 'qweqweqwe') }
     let!(:access_token) { Doorkeeper::AccessToken.create!(resource_owner_id: user.id) }
     let!(:headers) { { 'Authorization' => "Bearer #{access_token.token}" } }
@@ -16,6 +16,8 @@ RSpec.describe 'Activities API', type: :request do
     let(:start_time) { Time.now }
     let(:end_time) { Time.now + 2.hours }
 
+    let(:response_attributes) { response.parsed_body['data']['attributes'] }
+
     let(:form) do
       {
         title: title,
@@ -29,6 +31,7 @@ RSpec.describe 'Activities API', type: :request do
       it 'returns activities list', :aggregate_failures do
         get url, headers: headers
         expect(response).to be_successful
+        expect(response.parsed_body['data'].first['id']).to eq(activity.id.to_s)
         expect(response.parsed_body.size).to eq(1)
       end
     end
@@ -38,9 +41,10 @@ RSpec.describe 'Activities API', type: :request do
       it 'returns data for created activity', :aggregate_failures do
         subject
         expect(response).to be_successful
-        expect(response.parsed_body['title']).to eq(title)
-        expect(response.parsed_body['description']).to eq(description)
-        expect(response.parsed_body['accepted']).to eq(false)
+        expect(response.parsed_body['data']['type']).to eq('activities')
+        expect(response_attributes['title']).to eq(title)
+        expect(response_attributes['description']).to eq(description)
+        expect(response_attributes['accepted']).to eq(false)
         # TODO: check times
       end
 
